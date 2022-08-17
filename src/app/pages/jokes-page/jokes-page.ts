@@ -21,14 +21,14 @@ export class JokesPage {
 
 	async ngOnInit() {
 		let response: any;
-		console.log('1')
+		let category: any;
+
 		try {
 			response = await this.dataService.getJokesData();
 		} catch (err) {
 			console.error(err)
 		}
 
-		let category: any;
 		try {
 			category = await this.dataService.getCategories();
 		} catch (err) {
