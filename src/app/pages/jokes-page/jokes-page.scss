@@ -6,12 +6,28 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
+	padding: 0 var(--content-margin);
 
+	.button {
+		margin-bottom: calc(var(--content-margin) * 2);
+		background-color: var(--yellow);
+		border: none;
+		border-radius: 8px;
+		font-weight: bold;
+		cursor: pointer;
+	}
 
-	.content-container {
-		margin: auto;
+	.add {
+		float: left;
+		width: 110px;
+		height: 48px;
+	}
 
+	.action {
+		width: 195px;
+		height: 48px;
+		float: right;
+		margin: calc(var(--content-margin) * 2) 0 0 var(--content-margin)
 	}
 
 	.large-card {
@@ -19,12 +35,16 @@
 		height: 50%;
 		box-shadow: var(--background-tertiary-shadow);
 		border-radius: 8px;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
 
-		p {
+		.joke-content {
+			margin: calc(var(--content-margin) * 10) var(--content-margin) 0 var(--content-margin);
+			height: 100%;
+			max-width: 748px;
+			width: 100%;
+			text-align: center;
+		}
+
+		.category-content {
 			margin: calc(var(--content-margin) * 2)
 		}
 	}
