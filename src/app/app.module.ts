@@ -7,7 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 
-import { ShippingComponent } from './pages/shipping/shipping.component';
+import { NewJokePage } from './pages/new-joke-page/new-joke-page';
 import { HeaderComponent } from './components/header/header';
 import { CardLargeComponent } from './components/card-large/card-large.component';
 import { environment } from 'src/environments/environment';
@@ -16,6 +16,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { DataService } from 'src/service/data-service';
 import { CartSmallComponent } from './components/cart-small/cart-small.component';
 import { JokesPage } from './pages/jokes-page/jokes-page';
+import { MyJokesPage } from './pages/my-jokes-page/my-jokes-page';
 
 @NgModule({
 	imports: [
@@ -26,26 +27,26 @@ import { JokesPage } from './pages/jokes-page/jokes-page';
 		provideFirestore(() => getFirestore()),
 		RouterModule.forRoot([
 			{ path: '', component: JokesPage },
-			{ path: 'products/:productId', component: CardLargeComponent },
-			// { path: 'cart', component: CartComponent },
-			{ path: 'shipping', component: ShippingComponent },
+			{ path: 'new-joke-page', component: NewJokePage },
+			{ path: 'my-jokes-page', component: MyJokesPage },
 		]),
 	],
 	declarations: [
 		AppComponent,
 		HeaderComponent,
-		// ProductListComponent,
-		// ProductAlertsComponent,
 		CardLargeComponent,
 		CartSmallComponent,
-		ShippingComponent,
-		JokesPage
+		JokesPage,
+		MyJokesPage,
 	],
 	bootstrap: [
 		AppComponent
 	],
 	providers: [
-		DataService
+		DataService,
+	],
+	entryComponents: [
+		NewJokePage
 	]
 })
 export class AppModule { }

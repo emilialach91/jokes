@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { DataService } from 'src/service/data-service';
 
-import { products } from '../../products';
-
 @Component({
 	selector: 'app-jokes-page',
 	templateUrl: './jokes-page.html',
 	styleUrls: ['./jokes-page.scss']
 })
 export class JokesPage {
+
 	jokes: any[] = []
 	currentSlide: any;
 	jokeIndex: number = 0;
@@ -64,6 +63,4 @@ export class JokesPage {
 	checkCategory(currentJoke: any) {
 		this.category = this.categories.find(x => x.id === currentJoke.category).name
 	}
-
-
 }
