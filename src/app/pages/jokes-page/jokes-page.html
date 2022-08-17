@@ -1,0 +1,15 @@
+<div class="main-container">
+	<!-- <app-card-large [jokes]="this.jokes"></app-card-large> -->
+	<div class="content-container">
+		<button>Dodaj</button>
+
+		<div class="large-card" *ngIf="currentSlide">
+			<p>kategoria: <b>{{category}}</b></p>
+			<p>{{currentSlide.content}}</p>
+		</div>
+		<div class="buttons">
+			<button *ngIf="jokeIndex" (click)="prevJoke()">prez joke</button>
+			<button *ngIf="jokeIndex < jokes.length - 1" (click)="nextJoke()">next joke</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css?family=PT+Sans:400,700");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+	/* Colors */
+	--primary: #2ab1f3;
+	--grey: #6D6D6D;
+	--yellow: #FFCC15;
+	--red: #E44C4C;
+	--green: #6AC068;
+	--white: #fff;
+
+	/* Shadows */
+	--background-tertiary-shadow: 0 0px 3px 0 rgba(158, 162, 167, 0.5);
+
+	/* Margin */
+	--content-margin: 16px;
+
+}
+
+body {
+	background: var(--white);
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Open Sans", sans-serif;
+	font-size: 16px;
+	color: var(--black)
+}

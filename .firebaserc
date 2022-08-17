@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "jokes-5142d": {
+      "hosting": {
+        "angular.io-example": [
+          "jokes-5142d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "jokes-5142d"
+  }
+}
