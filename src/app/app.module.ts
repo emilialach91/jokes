@@ -17,12 +17,17 @@ import { DataService } from 'src/service/data-service';
 import { CartSmallComponent } from './components/cart-small/cart-small.component';
 import { JokesPage } from './pages/jokes-page/jokes-page';
 import { MyJokesPage } from './pages/my-jokes-page/my-jokes-page';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { JokeService } from 'src/service/jokes-service';
 
 @NgModule({
 	imports: [
 		BrowserModule,
 		HttpClientModule,
 		ReactiveFormsModule,
+		MatDialogModule,
+		BrowserAnimationsModule,
 		provideFirebaseApp(() => initializeApp(environment.firebase)),
 		provideFirestore(() => getFirestore()),
 		RouterModule.forRoot([
@@ -31,6 +36,9 @@ import { MyJokesPage } from './pages/my-jokes-page/my-jokes-page';
 			{ path: 'my-jokes-page', component: MyJokesPage },
 		]),
 	],
+	exports: [
+		MatDialogModule,
+	],
 	declarations: [
 		AppComponent,
 		HeaderComponent,
@@ -38,15 +46,14 @@ import { MyJokesPage } from './pages/my-jokes-page/my-jokes-page';
 		CartSmallComponent,
 		JokesPage,
 		MyJokesPage,
+		NewJokePage
 	],
 	bootstrap: [
 		AppComponent
 	],
 	providers: [
 		DataService,
+		JokeService
 	],
-	entryComponents: [
-		NewJokePage
-	]
 })
 export class AppModule { }

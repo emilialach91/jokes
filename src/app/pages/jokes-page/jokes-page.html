@@ -1,6 +1,6 @@
 <div class="main-container">
 	<div class="content-container" *ngIf="currentSlide">
-		<button class="button add">Dodaj</button>
+		<button (click)="jokeService.openDialog()" class="button add">Dodaj</button>
 		<div class="large-card">
 			<p class="action category-content">kategoria: <b>{{category}}</b></p>
 			<p class="joke-content">{{currentSlide.content}}</p>

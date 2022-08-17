@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from 'src/service/data-service';
+import { JokeService } from 'src/service/jokes-service';
 
 @Component({
 	selector: 'app-jokes-page',
@@ -15,7 +16,8 @@ export class JokesPage {
 	category: string = '';
 
 	constructor(
-		public dataService: DataService
+		public dataService: DataService,
+		public jokeService: JokeService
 	) { }
 
 	async ngOnInit() {
