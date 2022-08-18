@@ -9,10 +9,8 @@ import { JokeService } from 'src/service/jokes-service';
 })
 export class JokesPage {
 
-	jokes: any[] = []
 	currentSlide: any;
 	jokeIndex: number = 0;
-	categories: any[] = [];
 	category: string = '';
 
 	constructor(
@@ -37,32 +35,31 @@ export class JokesPage {
 		}
 
 		if (response.length > 0) {
-			this.jokes = response;
-			this.currentSlide = this.jokes[0];
+			this.jokeService.jokeList = response;
+			this.currentSlide = this.jokeService.jokeList[0];
 		}
 
 		if (category.length > 0) {
-			this.categories = category
+			this.jokeService.categoryList = category
 		}
 
-		this.category = this.categories.find(x => x.id === this.currentSlide.category).name
+		this.category = this.jokeService.categoryList.find(x => x.id === this.currentSlide.category).name
 	}
 
 	nextJoke() {
 		this.jokeIndex = this.jokeIndex + 1;
-		this.currentSlide = this.jokes[this.jokeIndex];
+		this.currentSlide = this.jokeService.jokeList[this.jokeIndex];
 		this.checkCategory(this.currentSlide)
 
 	}
 
 	prevJoke() {
 		this.jokeIndex = this.jokeIndex - 1;
-		this.currentSlide = this.jokes[this.jokeIndex];
+		this.currentSlide = this.jokeService.jokeList[this.jokeIndex];
 		this.checkCategory(this.currentSlide)
 	};
 
-
 	checkCategory(currentJoke: any) {
-		this.category = this.categories.find(x => x.id === currentJoke.category).name
+		this.category = this.jokeService.categoryList.find(x => x.id === currentJoke.category).name
 	}
 }

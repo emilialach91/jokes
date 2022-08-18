@@ -8,6 +8,9 @@ import { MatDialog } from '@angular/material/dialog';
 
 export class JokeService {
 
+	categoryList: any[] = []
+	jokeList: any[] = [];
+
 	constructor(
 		public dialog: MatDialog,
 	) {

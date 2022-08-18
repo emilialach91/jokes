@@ -1,9 +1,20 @@
 <mat-dialog-content>
-	<p>
-		{{message}}
-	</p>
+	<p class="form-title">Dodawanie żartu</p>
+
+	<form [formGroup]="this.newJokeForm">
+		<div class="form">
+			<select formControlName="newJokeCategory">
+				<option ng-model="default">Wybierz kategorie</option>
+				<option *ngFor="let category of this.jokesService.categoryList">
+					{{category.name}}
+				</option>
+			</select>
+			<input placeholder="Wprowadź treść żartu" type="text" formControlName="newJokeInput" />
+		</div>
+
+	</form>
 </mat-dialog-content>
-<mat-dialog-actions align="center">
-	<button mat-raised-button color="primary" (click)="onConfirmClick()" tabindex="1">{{confirmButtonText}}</button>
-	<button mat-raised-button mat-dialog-close tabindex="-1">{{cancelButtonText}}</button>
+<mat-dialog-actions align="end">
+	<button mat-raised-button mat-dialog-close class="button cancel" tabindex="-1">Anuluj</button>
+	<button mat-raised-button type="submit" class="button add" [disabled]="!this.newJokeForm.valid" (click)="onConfirmClick()" tabindex="1">Dodaj</button>
 </mat-dialog-actions>

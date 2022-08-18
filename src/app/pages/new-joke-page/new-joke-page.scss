@@ -1,0 +1,51 @@
+.form-title {
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin-bottom: calc(var(--content-margin) * 2.5);
+	margin-top: calc(var(--content-margin) * 2.5);
+}
+
+.form {
+	max-width: 600px;
+	width: 100%;
+	height: 470px;
+	text-align: center;
+
+	select {
+		height: 48px;
+		max-width: 547px;
+		width: 100%;
+		margin: auto;
+		margin-bottom: var(--content-margin);
+		border: solid 0.2px var(--grey);
+	}
+
+	input {
+		max-height: 200px;
+		height: 100%;
+		max-width: 540px;
+		width: 100%;
+		margin: auto;
+		border: solid 0.2px var(--grey);
+	}
+}
+
+.button {
+	border: none;
+	border-radius: 8px;
+	font-weight: bold;
+	cursor: pointer;
+	width: 110px;
+	height: 48px;
+	font-weight: bold;
+	box-shadow: none !important;
+}
+
+.add {
+	background-color: var(--yellow);
+}
+
+.cancel {
+	background-color: transparent;
+	color: var(--yellow)
+}
