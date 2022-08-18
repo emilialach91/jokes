@@ -20,13 +20,14 @@ import { MyJokesPage } from './pages/my-jokes-page/my-jokes-page';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { JokeService } from 'src/service/jokes-service';
+import { MaterialModule } from './material.module';
 
 @NgModule({
 	imports: [
 		BrowserModule,
 		HttpClientModule,
 		ReactiveFormsModule,
-		MatDialogModule,
+		MaterialModule,
 		BrowserAnimationsModule,
 		provideFirebaseApp(() => initializeApp(environment.firebase)),
 		provideFirestore(() => getFirestore()),
@@ -55,5 +56,6 @@ import { JokeService } from 'src/service/jokes-service';
 		DataService,
 		JokeService
 	],
+	entryComponents: [NewJokePage]
 })
 export class AppModule { }
