@@ -34,12 +34,12 @@ export class JokesPage {
 			console.error(err)
 		}
 
-		if (response.length > 0) {
+		if (response && response.length > 0) {
 			this.jokeService.jokeList = response;
 			this.currentSlide = this.jokeService.jokeList[0];
 		}
 
-		if (category.length > 0) {
+		if (response && response.length > 0) {
 			this.jokeService.categoryList = category
 		}
 

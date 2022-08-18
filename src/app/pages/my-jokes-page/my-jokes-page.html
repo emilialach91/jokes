@@ -1,9 +1,20 @@
 <div class="main-container">
 	<div class="content-container">
-		<button class="button add" (click)="addNewJoke()">Dodaj</button>
-		<app-cart-small></app-cart-small>
-		<div>
-			<button class="button action">Pokaż następny</button>
-		</div>
+		<ng-container *ngIf="myJokes.length > 0; then filled; else empty;"></ng-container>
+
+		<ng-template #filled>
+			<button class="button add" (click)="addNewJoke()">Dodaj</button>
+			<div *ngFor="let joke of this.myJokes">
+				<p>kategoria: <b>{{joke.category}}</b></p>
+				<p>{{joke.content}}</p>
+			</div>
+		</ng-template>
+
+		<ng-template #empty>
+			<div>
+				<p>Nie masz jeszcze dodanych swoich żartow.</p>
+				<button class="button add" (click)="addNewJoke()">Dodaj</button>
+			</div>
+		</ng-template>
 	</div>
 </div>

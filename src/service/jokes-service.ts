@@ -18,7 +18,6 @@ export class JokeService {
 	}
 
 	openDialog() {
-		console.log('dupa')
 		const dialogRef = this.dialog.open(NewJokePage, {
 			data: {
 				message: 'Are you sure want to delete?',

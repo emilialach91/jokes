@@ -9,12 +9,13 @@ import { JokeService } from 'src/service/jokes-service';
 })
 export class MyJokesPage {
 
+	myJokes: any[] = [];
+
 	constructor(
 		public jokeService: JokeService,
 		public dataService: DataService
 	) {
 	}
-
 
 	async ngOnInit() {
 		let response: any;
@@ -25,14 +26,11 @@ export class MyJokesPage {
 			console.error(err)
 		}
 
-		if (response || response.length > 0) {
-			console.log('1')
-		} else {
-			console.log('2')
+		if (response) {
+			Object.keys(response).map((objectKey) => {
+				this.myJokes.push(response[objectKey])
+			});
 		}
-
-
-		// this.category = this.jokeService.categoryList.find(x => x.id === this.currentSlide.category).name
 	}
 
 	async addNewJoke() {
@@ -44,8 +42,6 @@ export class MyJokesPage {
 		let resp: any;
 
 		resp = await this.dataService.sendMyJokesData(params);
-
-		console.log(resp)
 
 	}
 
