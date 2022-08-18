@@ -43,7 +43,38 @@ export class DataService {
 				);
 		});
 	}
+
+	getMyJokesData() {
+		return new Promise((resolve, reject) => {
+			this.httpClient.get('https://jokes-c4aea-default-rtdb.firebaseio.com/my-jokes.json')
+				.subscribe(
+					data => {
+						resolve(data);
+					},
+					async err => {
+						console.log('error', err)
+						reject(err);
+					}
+				);
+		});
+	}
+
+	sendMyJokesData(params: any) {
+		return new Promise((resolve, reject) => {
+			this.httpClient.post('https://jokes-c4aea-default-rtdb.firebaseio.com/my-jokes.json', params)
+				.subscribe(
+					data => {
+						resolve(data);
+					},
+					async err => {
+						console.log('error', err)
+						reject(err);
+					}
+				);
+		});
+	}
 }
+
 
 export interface JokesDataResponse {
 	id: string;
