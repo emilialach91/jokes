@@ -4,7 +4,7 @@
 
 		<ng-template #filled>
 			<button class="button add" (click)="addNewJoke()">Dodaj</button>
-			<div *ngFor="let joke of this.myJokes">
+			<div *ngFor="let joke of this.myJokes" (click)="deleteJoke(joke.id)" class="my-joke-container">
 				<p>kategoria: <b>{{joke.category}}</b></p>
 				<p>{{joke.content}}</p>
 			</div>

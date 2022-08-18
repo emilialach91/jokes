@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 
@@ -65,6 +65,22 @@ export class DataService {
 				.subscribe(
 					data => {
 						resolve(data);
+					},
+					async err => {
+						console.log('error', err)
+						reject(err);
+					}
+				);
+		});
+	}
+
+	deleteMyJoke(params: any) {
+		return new Promise((resolve, reject) => {
+			this.httpClient.delete('https://jokes-c4aea-default-rtdb.firebaseio.com/my-jokes/' + params + '.json')
+				.subscribe(
+					data => {
+						resolve(data);
+						console.log(data)
 					},
 					async err => {
 						console.log('error', err)

@@ -10,6 +10,7 @@ import { JokeService } from 'src/service/jokes-service';
 export class MyJokesPage {
 
 	myJokes: any[] = [];
+	jokeKey: any;
 
 	constructor(
 		public jokeService: JokeService,
@@ -27,15 +28,31 @@ export class MyJokesPage {
 		}
 
 		if (response) {
+			this.jokeKey = response;
 			Object.keys(response).map((objectKey) => {
 				this.myJokes.push(response[objectKey])
 			});
 		}
 	}
 
+
+	async deleteJoke(id: string) {
+		console.log('all', this.jokeKey)
+		const newArrayDataOfOjbect = Object.values(this.jokeKey)
+		// const selectedJoke: string = this.jokeKey.find(x => x.id === id);
+		// const prop: string = "-N9mbCWKJcHoTN_zE-6S"
+
+		// const test: any = delete this.jokeKey[prop]
+
+		console.log(newArrayDataOfOjbect)
+		console.log(this.jokeKey)
+		// console.log('1', selectedJoke)
+		// await this.dataService.deleteMyJoke(selectedJoke);
+	}
+
 	async addNewJoke() {
 		const params: any = {
-			id: 'hdjhfd',
+			id: 'hfffdfghfgjdghj',
 			category: 'o jasiu',
 			content: "prosze niech to dziala"
 		}
