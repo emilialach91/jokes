@@ -43,6 +43,7 @@ export class ActionPage {
 	async deleteJoke(value: any) {
 		let resp: any;
 		resp = await this.dataService.deleteMyJoke(Object.keys(this.jokeService.myJokesData).find(key => this.jokeService.myJokesData[key] === value))
+		this.dialogRef.close(true);
 	}
 
 }
