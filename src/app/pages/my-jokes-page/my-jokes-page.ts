@@ -29,6 +29,7 @@ export class MyJokesPage {
 		if (response) {
 			this.jokeService.myJokesData = response;
 			Object.keys(response).map((objectKey) => {
+				response[objectKey].category = this.jokeService.categoryList.find(x => x.id === response[objectKey].category).name
 				this.myJokes.push(response[objectKey])
 			});
 		}

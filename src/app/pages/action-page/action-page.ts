@@ -29,9 +29,9 @@ export class ActionPage {
 
 	async addNewJoke() {
 		const params: any = {
-			id: 'hfffdfghfgjdghj',
-			category: 'o jasiu',
-			content: "prosze niech to dziala"
+			id: new Array(34).fill(undefined).map(i => (~~(Math.random() * 36)).toString(36)).join(''),
+			category: this.jokeService.categoryList.find(x => x.name === this.newJokeForm.controls['newJokeCategory'].value).id,
+			content: this.newJokeForm.controls['newJokeInput'].value
 		}
 		let resp: any;
 
