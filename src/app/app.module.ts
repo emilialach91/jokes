@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 
 import { ActionPage } from './pages/action-page/action-page';
 import { HeaderComponent } from './components/header/header';
-import { CardLargeComponent } from './components/card-large/card-large.component';
+
 import { environment } from 'src/environments/environment';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { JokeService } from 'src/service/jokes-service';
 import { MaterialModule } from './material.module';
+import { SnackbarComponent } from './components/snackbar/snackbar.component';
 
 @NgModule({
 	imports: [
@@ -41,8 +42,7 @@ import { MaterialModule } from './material.module';
 	declarations: [
 		AppComponent,
 		HeaderComponent,
-		CardLargeComponent,
-		CartSmallComponent,
+		SnackbarComponent,
 		JokesPage,
 		MyJokesPage,
 		ActionPage,

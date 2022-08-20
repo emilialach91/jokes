@@ -37,6 +37,7 @@ export class ActionPage {
 
 		resp = await this.dataService.sendMyJokesData(params);
 		this.dialogRef.close(true);
+		this.jokeService.openSnackBar('Żart został pomyślnie dodany', null, 3000)
 
 	}
 
