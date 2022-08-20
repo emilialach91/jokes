@@ -3,17 +3,18 @@
 		<ng-container *ngIf="myJokes.length > 0; then filled; else empty;"></ng-container>
 
 		<ng-template #filled>
-			<button class="button add" (click)="addNewJoke()">Dodaj</button>
-			<div *ngFor="let joke of this.myJokes" (click)="deleteJoke(joke.id)" class="my-joke-container">
-				<p>kategoria: <b>{{joke.category}}</b></p>
-				<p>{{joke.content}}</p>
+			<button class="button left" (click)="jokeService.openDialog()">Dodaj</button>
+			<div *ngFor="let joke of myJokes" class="my-joke-container">
+				<p class="joke-category">kategoria: <b>{{joke.category}}</b></p>
+				<p class="joke-content">{{joke.content}}</p>
+				<button class="button delete" (click)="jokeService.openDialog(joke)">Usuń</button>
 			</div>
 		</ng-template>
 
 		<ng-template #empty>
-			<div>
+			<div class="center">
 				<p>Nie masz jeszcze dodanych swoich żartow.</p>
-				<button class="button add" (click)="addNewJoke()">Dodaj</button>
+				<button class="button" (click)="jokeService.openDialog()">Dodaj</button>
 			</div>
 		</ng-template>
 	</div>

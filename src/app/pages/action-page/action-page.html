@@ -1,0 +1,35 @@
+<mat-dialog-content>
+	<ng-container *ngIf="data.title === 'Potwierdzenie'; then remove; else add; "></ng-container>
+	<ng-template #remove>
+		<p class="form-title">{{data.title}}</p>
+		<p>{{data.message}}</p>
+	</ng-template>
+	<ng-template #add>
+		<p class="form-title">{{data.title}}</p>
+		<form [formGroup]="newJokeForm">
+			<div class="form">
+				<select formControlName="newJokeCategory">
+					<option>Wybierz kategorie</option>
+					<option *ngFor="let category of jokeService.categoryList">
+						{{category.name}}
+					</option>
+				</select>
+				<input placeholder="Wprowadź treść żartu" type="text" formControlName="newJokeInput" />
+			</div>
+
+		</form>
+	</ng-template>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+	<ng-container *ngIf="data.title === 'Potwierdzenie'; then removeButtons; else addButtons ; "></ng-container>
+
+	<ng-template #removeButtons>
+		<button mat-raised-button mat-dialog-close class="button cancel" tabindex="-1">{{data.buttonText.cancel}}</button>
+		<button mat-raised-button class="button add" tabindex="1" (click)="deleteJoke(data.joke)">{{data.buttonText.ok}}</button>
+	</ng-template>
+
+	<ng-template #addButtons>
+		<button mat-raised-button mat-dialog-close class="button cancel" tabindex="-1">{{data.buttonText.cancel}}</button>
+		<button mat-raised-button type="submit" class="button add" [disabled]="!newJokeForm.valid" (click)="addNewJoke()" tabindex="1">{{data.buttonText.ok}}</button>
+	</ng-template>
+</mat-dialog-actions>

@@ -10,17 +10,17 @@
 
 	.button {
 		margin-bottom: calc(var(--content-margin) * 2);
-		background-color: var(--yellow);
 		border: none;
 		border-radius: 8px;
 		font-weight: bold;
 		cursor: pointer;
+		width: 110px;
+		height: 48px;
+		background-color: var(--yellow);
 	}
 
 	.add {
 		float: left;
-		width: 110px;
-		height: 48px;
 	}
 
 	.action {

@@ -80,7 +80,6 @@ export class DataService {
 				.subscribe(
 					data => {
 						resolve(data);
-						console.log(data)
 					},
 					async err => {
 						console.log('error', err)
