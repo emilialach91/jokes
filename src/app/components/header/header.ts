@@ -9,10 +9,22 @@ import { DataService, JokesDataResponse } from 'src/service/data-service';
 	styleUrls: ['./header.scss']
 })
 export class HeaderComponent {
+	allJokesView: boolean = true;
+	myJokesView: boolean = false;
 
 	constructor(
 		public dataService: DataService,
 		public httpClient: HttpClient
 	) {
+	}
+
+	allJokesViewToggle() {
+		this.allJokesView = true;
+		this.myJokesView = false;
+	}
+
+	myJokesViewToggle() {
+		this.allJokesView = false;
+		this.myJokesView = true;
 	}
 }
