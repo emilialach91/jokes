@@ -1,8 +1,8 @@
 
 import { Injectable } from '@angular/core';
-import { ActionPage } from 'src/app/pages/action-page/action-page';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActionPage } from 'src/app/pages/action-page/action-page';
 
 @Injectable()
 
@@ -14,7 +14,7 @@ export class JokeService {
 
 	constructor(
 		public dialog: MatDialog,
-		public _snackBar: MatSnackBar
+		public snackBar: MatSnackBar
 	) {
 
 	}
@@ -49,14 +49,6 @@ export class JokeService {
 				a.click();
 				a.remove();
 			}
-		});
-	}
-
-	openSnackBar(content: string, action: any, duration: number) {
-		this._snackBar.open(content, action, {
-			duration: duration,
-			verticalPosition: "top", // Allowed values are  'top' | 'bottom'
-			horizontalPosition: "end" // Allowed values are 'start' | 'center' | 'end' | 'left' | 'right'
 		});
 	}
 }

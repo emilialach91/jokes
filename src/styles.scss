@@ -13,7 +13,7 @@
 
 	/* Shadows */
 	--background-tertiary-shadow: 0 0px 3px 0 rgba(158, 162, 167, 0.5);
-
+	--box-shadow-bottom: 0 4px 2px -2px rgba(158, 162, 167, 0.5);
 	/* Margin */
 	--content-margin: 16px;
 
@@ -30,4 +30,16 @@ body {
 	font-family: "Open Sans", sans-serif;
 	font-size: 16px;
 	color: var(--black)
+}
+
+
+
+.success-snackbar {
+	// position: relative;
+	background-color: var(--green);
+	color: var(--white);
+	border-radius: 10px;
+	height: 100px;
+	max-width: 470px;
+	width: 100%;
 }

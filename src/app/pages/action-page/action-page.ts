@@ -1,6 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnakbarComponent } from 'src/app/components/snackbar/snackbar';
 import { DataService } from 'src/service/data-service';
 import { JokeService } from 'src/service/jokes-service';
 
@@ -22,7 +24,8 @@ export class ActionPage {
 		@Inject(MAT_DIALOG_DATA) public data: any,
 		private dialogRef: MatDialogRef<ActionPage>,
 		public jokeService: JokeService,
-		public dataService: DataService
+		public dataService: DataService,
+		public snackBar: MatSnackBar
 	) {
 	}
 
@@ -37,7 +40,7 @@ export class ActionPage {
 
 		resp = await this.dataService.sendMyJokesData(params);
 		this.dialogRef.close(true);
-		this.jokeService.openSnackBar('Żart został pomyślnie dodany', null, 3000)
+		this.openAddedJokeSnackbar();
 
 	}
 
@@ -45,6 +48,32 @@ export class ActionPage {
 		let resp: any;
 		resp = await this.dataService.deleteMyJoke(Object.keys(this.jokeService.myJokesData).find(key => this.jokeService.myJokesData[key] === value))
 		this.dialogRef.close(true);
+		this.openDeletedJokeSnackbar();
 	}
 
+	openAddedJokeSnackbar() {
+		this.snackBar.openFromComponent(SnakbarComponent, {
+			verticalPosition: "top",
+			horizontalPosition: "end",
+			panelClass: ['success-snackbar'],
+			duration: 4000,
+			data: {
+				title: 'Sukces',
+				message: 'Żart został pomyślnie dodany.'
+			}
+		});
+	};
+
+	openDeletedJokeSnackbar() {
+		this.snackBar.openFromComponent(SnakbarComponent, {
+			verticalPosition: "top",
+			horizontalPosition: "end",
+			panelClass: ['success-snackbar'],
+			duration: 4000,
+			data: {
+				title: 'Sukces',
+				message: 'Żart został pomyślnie usunięty.'
+			}
+		});
+	};
 }

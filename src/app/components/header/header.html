@@ -1,10 +1,12 @@
-<div class="header-container">
-	<div>
-		<img src="../../assets/logo.svg" />
-	</div>
+<div class="header-shadow">
+	<div class="header-container">
+		<div>
+			<img src="../../assets/logo.svg" />
+		</div>
 
-	<div class="menu-container">
-		<p routerLink="/" (click)="allJokesViewToggle()" [ngClass]="allJokesView ? 'menu-item yellow' : 'menu-item'">Żarty</p>
-		<p routerLink="/my-jokes-page" (click)="myJokesViewToggle()" [ngClass]="myJokesView ? 'menu-item yellow' : 'menu-item'">Moje żarty</p>
+		<div class="menu-container">
+			<p routerLink="/" (click)="allJokesViewToggle()" [ngClass]="allJokesView ? 'menu-item yellow' : 'menu-item'">Żarty</p>
+			<p routerLink="/my-jokes-page" (click)="myJokesViewToggle()" [ngClass]="myJokesView ? 'menu-item yellow' : 'menu-item'">Moje żarty</p>
+		</div>
 	</div>
 </div>
