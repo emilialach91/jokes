@@ -29,13 +29,10 @@ body {
 	padding: 0;
 	font-family: "Open Sans", sans-serif;
 	font-size: 16px;
-	color: var(--black)
+	color: var(--black);
 }
 
-
-
 .success-snackbar {
-	// position: relative;
 	background-color: var(--green);
 	color: var(--white);
 	border-radius: 10px;
