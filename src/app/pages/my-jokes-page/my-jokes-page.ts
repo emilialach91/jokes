@@ -23,9 +23,10 @@ export class MyJokesPage {
 
 	ngOnInit() {
 		this.jokeService.myJokesList.forEach((joke) => {
-			joke.category = this.jokeService.categoryList.find(x => x.id === joke.category).name
-		})
-
+			if (this.jokeService.categoryList.find(x => x.id === joke.category)) {
+				joke.category = this.jokeService.categoryList.find(x => x.id === joke.category).name
+			}
+		});
 		this.pageState.loading = false;
 		this.pageState.ready = true;
 	}
