@@ -19,29 +19,33 @@ export class JokesPage {
 	) { }
 
 	async ngOnInit() {
-		let response: any;
-		let category: any;
+		let allJokeResp: any;
+		let categoryResp: any;
 
 		try {
-			response = await this.dataService.getJokesData();
+			allJokeResp = await this.dataService.getJokesData();
 		} catch (err) {
 			console.error(err)
 		}
 
+
 		try {
-			category = await this.dataService.getCategories();
+			categoryResp = await this.dataService.getCategories();
 		} catch (err) {
 			console.error(err)
 		}
 
-		if (response && response.length > 0) {
-			this.jokeService.jokeList = response;
+
+		if (allJokeResp && allJokeResp.length > 0) {
+			this.jokeService.jokeList = allJokeResp;
 			this.currentSlide = this.jokeService.jokeList[0];
 		}
 
-		if (response && response.length > 0) {
-			this.jokeService.categoryList = category
+		if (allJokeResp && allJokeResp.length > 0) {
+			this.jokeService.categoryList = categoryResp
 		}
+
+		await this.getMyJokes();
 
 		this.category = this.jokeService.categoryList.find(x => x.id === this.currentSlide.category).name
 	}
@@ -61,5 +65,28 @@ export class JokesPage {
 
 	checkCategory(currentJoke: any) {
 		this.category = this.jokeService.categoryList.find(x => x.id === currentJoke.category).name
+	}
+
+	async getMyJokes() {
+		let myJokesResp: any;
+
+		try {
+			myJokesResp = await this.dataService.getMyJokesData();
+		} catch (err) {
+			console.error(err)
+		}
+
+		if (myJokesResp) {
+			this.jokeService.myJokesData = myJokesResp;
+			Object.keys(myJokesResp).map((objectKey) => {
+
+				if (!this.jokeService.myJokesList.find(x => x.id === myJokesResp[objectKey].id)) {
+					this.jokeService.myJokesList.push(myJokesResp[objectKey])
+				}
+				if (!this.jokeService.jokeList.find(x => x.id === myJokesResp[objectKey].id)) {
+					this.jokeService.jokeList.push(myJokesResp[objectKey])
+				}
+			})
+		}
 	}
 }

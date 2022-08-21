@@ -9,7 +9,7 @@ import { JokeService } from 'src/service/jokes-service';
 })
 export class MyJokesPage {
 
-	myJokes: any[] = [];
+	category: any;
 
 	constructor(
 		public jokeService: JokeService,
@@ -17,21 +17,9 @@ export class MyJokesPage {
 	) {
 	}
 
-	async ngOnInit() {
-		let response: any;
-
-		try {
-			response = await this.dataService.getMyJokesData();
-		} catch (err) {
-			console.error(err)
-		}
-
-		if (response) {
-			this.jokeService.myJokesData = response;
-			Object.keys(response).map((objectKey) => {
-				response[objectKey].category = this.jokeService.categoryList.find(x => x.id === response[objectKey].category).name
-				this.myJokes.push(response[objectKey])
-			});
-		}
+	ngOnInit() {
+		this.jokeService.myJokesList.map((joke) => {
+			joke.category = this.jokeService.categoryList.find(x => x.id === joke.category).name
+		})
 	}
 }

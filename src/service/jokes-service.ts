@@ -10,6 +10,7 @@ export class JokeService {
 
 	categoryList: any[] = []
 	jokeList: any[] = [];
+	myJokesList: any[] = [];
 	myJokesData: any;
 
 	constructor(

@@ -1,10 +1,10 @@
 <div class="main-container">
 	<div class="content-container">
-		<ng-container *ngIf="myJokes.length > 0; then filled; else empty;"></ng-container>
+		<ng-container *ngIf="jokeService.myJokesList.length > 0; then filled; else empty;"></ng-container>
 
 		<ng-template #filled>
 			<button class="button left" (click)="jokeService.openDialog()">Dodaj</button>
-			<div *ngFor="let joke of myJokes" class="my-joke-container">
+			<div *ngFor="let joke of jokeService.myJokesList" class="my-joke-container">
 				<p class="joke-category">kategoria: <b>{{joke.category}}</b></p>
 				<p class="joke-content">{{joke.content}}</p>
 				<button class="button delete" (click)="jokeService.openDialog(joke)">Usuń</button>
