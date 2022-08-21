@@ -25,7 +25,7 @@ export class ActionPage {
 		private dialogRef: MatDialogRef<ActionPage>,
 		public jokeService: JokeService,
 		public dataService: DataService,
-		public snackBar: MatSnackBar
+		public snackBar: MatSnackBar,
 	) {
 	}
 

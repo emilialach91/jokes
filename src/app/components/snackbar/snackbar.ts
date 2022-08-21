@@ -12,7 +12,7 @@ export class SnakbarComponent {
 	constructor(
 		@Inject(MAT_SNACK_BAR_DATA) public data: any,
 		public snackBar: MatSnackBar,
-		public jokeService: JokeService) {
+		public jokeService: JokeService,) {
 	}
 
 	async dismiss() {

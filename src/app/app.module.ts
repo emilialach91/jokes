@@ -20,6 +20,7 @@ import { JokeService } from 'src/service/jokes-service';
 import { MaterialModule } from './material.module';
 import { ActionPage } from './pages/action-page/action-page';
 import { SnakbarComponent } from './components/snackbar/snackbar';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -31,10 +32,7 @@ import { SnakbarComponent } from './components/snackbar/snackbar';
 		BrowserAnimationsModule,
 		provideFirebaseApp(() => initializeApp(environment.firebase)),
 		provideFirestore(() => getFirestore()),
-		RouterModule.forRoot([
-			{ path: '', component: JokesPage },
-			{ path: 'my-jokes-page', component: MyJokesPage },
-		]),
+		AppRoutingModule
 	],
 	exports: [
 		MatDialogModule,
