@@ -1,5 +1,12 @@
 <div class="main-container">
-	<div class="content-container" *ngIf="currentSlide">
+	<div *ngIf="pageState.loading" class="flex-center">
+		<div class="spinner-container">
+			<mat-spinner strokeWidth="3" [diameter]="40"></mat-spinner>
+			<p>Ładuje ...</p>
+		</div>
+	</div>
+
+	<div class="content-container" *ngIf="pageState.ready">
 		<button (click)="jokeService.openDialog()" class="button add">Dodaj</button>
 		<div class="large-card">
 			<p class="action category-content">kategoria: <b>{{category}}</b></p>

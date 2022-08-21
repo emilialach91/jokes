@@ -1,5 +1,11 @@
 <div class="main-container">
-	<div class="content-container">
+	<div *ngIf="pageState.loading" class="flex-center">
+		<div class="spinner-container">
+			<mat-spinner strokeWidth="3" [diameter]="40"></mat-spinner>
+			<p>Ładuje ...</p>
+		</div>
+	</div>
+	<div class="content-container" *ngIf="pageState.ready">
 		<ng-container *ngIf="jokeService.myJokesList.length > 0; then filled; else empty;"></ng-container>
 
 		<ng-template #filled>

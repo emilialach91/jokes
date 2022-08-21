@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DataService } from 'src/service/data-service';
 import { JokeService } from 'src/service/jokes-service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
 	selector: 'app-jokes-page',
@@ -12,6 +13,11 @@ export class JokesPage {
 	currentSlide: any;
 	jokeIndex: number = 0;
 	category: string = '';
+
+	pageState: PageState = {
+		loading: true,
+		ready: false,
+	}
 
 	constructor(
 		public dataService: DataService,
@@ -45,9 +51,11 @@ export class JokesPage {
 			this.jokeService.categoryList = categoryResp
 		}
 
-		await this.getMyJokes();
+		await this.jokeService.getMyJokes();
 
 		this.category = this.jokeService.categoryList.find(x => x.id === this.currentSlide.category).name
+		this.pageState.loading = false;
+		this.pageState.ready = true;
 	}
 
 	nextJoke() {
@@ -66,27 +74,9 @@ export class JokesPage {
 	checkCategory(currentJoke: any) {
 		this.category = this.jokeService.categoryList.find(x => x.id === currentJoke.category).name
 	}
+}
 
-	async getMyJokes() {
-		let myJokesResp: any;
-
-		try {
-			myJokesResp = await this.dataService.getMyJokesData();
-		} catch (err) {
-			console.error(err)
-		}
-
-		if (myJokesResp) {
-			this.jokeService.myJokesData = myJokesResp;
-			Object.keys(myJokesResp).map((objectKey) => {
-
-				if (!this.jokeService.myJokesList.find(x => x.id === myJokesResp[objectKey].id)) {
-					this.jokeService.myJokesList.push(myJokesResp[objectKey])
-				}
-				if (!this.jokeService.jokeList.find(x => x.id === myJokesResp[objectKey].id)) {
-					this.jokeService.jokeList.push(myJokesResp[objectKey])
-				}
-			})
-		}
-	}
+export interface PageState {
+	loading: boolean;
+	ready: boolean;
 }

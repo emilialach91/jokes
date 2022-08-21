@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActionPage } from 'src/app/pages/action-page/action-page';
+import { DataService } from './data-service';
 
 @Injectable()
 
@@ -15,7 +16,8 @@ export class JokeService {
 
 	constructor(
 		public dialog: MatDialog,
-		public snackBar: MatSnackBar
+		public snackBar: MatSnackBar,
+		public dataService: DataService
 	) {
 
 	}
@@ -51,6 +53,29 @@ export class JokeService {
 				a.remove();
 			}
 		});
+	}
+
+	async getMyJokes() {
+		let myJokesResp: any;
+
+		try {
+			myJokesResp = await this.dataService.getMyJokesData();
+		} catch (err) {
+			console.error(err)
+		}
+
+		if (myJokesResp) {
+			this.myJokesData = myJokesResp;
+			Object.keys(myJokesResp).map((objectKey) => {
+
+				if (!this.myJokesList.find(x => x.id === myJokesResp[objectKey].id)) {
+					this.myJokesList.push(myJokesResp[objectKey])
+				}
+				if (!this.jokeList.find(x => x.id === myJokesResp[objectKey].id)) {
+					this.jokeList.push(myJokesResp[objectKey])
+				}
+			})
+		}
 	}
 }
 

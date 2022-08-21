@@ -40,3 +40,30 @@ body {
 	max-width: 470px;
 	width: 100%;
 }
+
+.flex-center {
+	width: 100%;
+	height: calc(100vh - 200px);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.spinner-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+
+	p {
+		margin-top: 20px;
+		color: var(--grey)
+	}
+
+	.mat-progress-spinner circle,
+	.mat-spinner circle {
+		stroke: var(--yellow);
+
+	}
+}

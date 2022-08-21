@@ -10,6 +10,10 @@ import { JokeService } from 'src/service/jokes-service';
 export class MyJokesPage {
 
 	category: any;
+	pageState: PageState = {
+		loading: true,
+		ready: false,
+	}
 
 	constructor(
 		public jokeService: JokeService,
@@ -18,8 +22,16 @@ export class MyJokesPage {
 	}
 
 	ngOnInit() {
-		this.jokeService.myJokesList.map((joke) => {
+		this.jokeService.myJokesList.forEach((joke) => {
 			joke.category = this.jokeService.categoryList.find(x => x.id === joke.category).name
 		})
+
+		this.pageState.loading = false;
+		this.pageState.ready = true;
 	}
+}
+
+export interface PageState {
+	loading: boolean;
+	ready: boolean;
 }
