@@ -39,20 +39,22 @@
 	width: 150px;
 	justify-content: space-between;
 	align-items: center;
-
-	@media screen and (max-width: 480px) {
-		display: none;
-	}
 }
 
 .mobile-menu {
 	display: none;
-
-	@media screen and (max-width: 480px) {
-		display: block;
-	}
 }
 
 .mat-menu-item {
 	font-weight: bold;
+}
+
+@media screen and (max-width: 480px) {
+	.mobile-menu {
+		display: block;
+	}
+
+	.desktop-menu {
+		display: none;
+	}
 }

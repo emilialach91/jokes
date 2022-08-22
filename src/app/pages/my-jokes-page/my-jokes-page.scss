@@ -1,51 +1,113 @@
-.content-container {
-	max-width: 768px;
+.main-container {
+	max-width: 1440px;
 	width: 100%;
-	height: calc(100vh - 80px);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	margin: 0 auto;
-	margin: var(--content-margin);
+	background-color: var(--white);
 
-	.center {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
+	.content-container {
+		max-width: 768px;
+		width: 100%;
+		height: calc(100vh - 80px);
+		margin: 0 auto;
+		margin: var(--content-margin);
 
-		p {
-			margin-top: calc(var(--content-margin) * 1.5)
+		.center {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: calc(100% - 100px);
+			color: var(--grey)
 		}
-	}
 
-	.button {
-		margin-bottom: calc(var(--content-margin) * 2);
-		background-color: var(--yellow);
-		border: none;
-		border-radius: 8px;
-		font-weight: bold;
-		cursor: pointer;
-		width: 110px;
-		height: 48px;
-	}
-
-	.my-joke-container {
-		max-width: 300px;
-		height: 200px;
-		box-shadow: var(--background-tertiary-shadow);
-		border-radius: 8px;
-		padding: var(--content-margin);
-		display: flex;
-		flex-direction: column;
-		justify-content: space-evenly;
-
-		.joke-content {
-			text-align: center;
-			margin: auto;
+		.button {
+			margin: calc(var(--content-margin) * 1.2) 0;
+			background-color: var(--yellow);
+			border: none;
+			border-radius: 8px;
+			font-weight: bold;
+			cursor: pointer;
+			width: 110px;
+			height: 48px;
+			margin: 8px;
 		}
-	}
 
-	.delete {
-		float: right;
-		background-color: var(--red);
-		color: var(--white)
+		.delete {
+			float: right;
+			background-color: var(--red);
+			color: var(--white);
+			margin: 0 var(--content-margin) var(--content-margin) 0;
+		}
+
+		.masonry-columns {
+			display: flex;
+			flex-flow: column wrap;
+			align-content: space-between;
+			height: 100vh;
+			max-width: 379px;
+
+			@media screen and (max-width: 786px) {
+				flex-flow: column;
+				max-width: 650px;
+				height: auto;
+				margin: 0 auto;
+			}
+		}
+
+		.my-joke-container {
+			max-width: 379px;
+			margin-bottom: 2%;
+			box-shadow: var(--background-tertiary-shadow);
+			border-radius: 8px;
+			margin: var(--content-margin);
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+
+			@media screen and (max-width: 786px) {
+				max-width: 650px;
+			}
+
+			.joke-category {
+				width: 100%;
+				text-align: right;
+				margin: var(--content-margin);
+			}
+
+			.joke-content {
+				text-align: center;
+				margin: auto;
+				margin: var(--content-margin);
+			}
+		}
+
+		.my-joke-container:nth-of-type(10n+1) {
+			order: 1;
+		}
+
+		.my-joke-container:nth-of-type(10n+2) {
+			order: 2;
+		}
+
+		.my-joke-container:nth-of-type(10n+3) {
+			order: 3;
+		}
+
+		.my-joke-container:nth-of-type(10n) {
+			order: 4;
+		}
+
+		/* Force new columns */
+		.break {
+			flex-basis: 100%;
+			width: 0;
+			margin: 0;
+			box-shadow: none;
+		}
 	}
 }

@@ -10,10 +10,13 @@
 
 		<ng-template #filled>
 			<button class="button left" (click)="jokeService.openDialog()">Dodaj</button>
-			<div *ngFor="let joke of jokeService.listOfTempJokes" class="my-joke-container">
-				<p class="joke-category">kategoria: <b>{{joke.category}}</b></p>
-				<p class="joke-content">{{joke.content}}</p>
-				<button class="button delete" (click)="jokeService.openDialog(joke)">Usuń</button>
+			<div class="masonry-columns">
+				<div *ngFor="let joke of jokeService.listOfTempJokes" class="my-joke-container">
+					<p class="joke-category">kategoria: <b>{{joke.category}}</b></p>
+					<p class="joke-content">{{joke.content}}</p>
+					<button class="button delete" (click)="jokeService.openDialog(joke)">Usuń</button>
+				</div>
+				<span class="my-joke-container break"></span>
 			</div>
 		</ng-template>
 
