@@ -3,16 +3,19 @@ import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActionPage } from 'src/app/pages/action-page/action-page';
-import { DataService } from './data-service';
+import { DataService, JokesData } from './data-service';
 
 @Injectable()
 
 export class JokeService {
 
 	categoryList: any[] = []
-	jokeList: any[] = [];
-	myJokesList: any[] = [];
+	jokeList: JokesData[] = [];
+	myJokesList: JokesData[] = [];
 	myJokesData: any;
+	refresh: boolean = false;
+	listOfTempJokes: JokesData[] = [];
+
 
 	constructor(
 		public dialog: MatDialog,
@@ -22,8 +25,8 @@ export class JokeService {
 
 	}
 
-	openDialog(joke?: string) {
-		let data: object;
+	openDialog(joke?: JokesData) {
+		let data: DialogData;
 		if (joke) {
 			data = {
 				title: 'Potwierdzenie',
@@ -36,8 +39,7 @@ export class JokeService {
 			}
 		} else {
 			data = {
-				title: 'Dodawanie żartu ',
-				message: null,
+				title: 'Dodawanie żartu',
 				buttonText: {
 					cancel: 'Anuluj',
 					ok: 'Dodaj',
@@ -47,6 +49,7 @@ export class JokeService {
 		const dialogRef = this.dialog.open(ActionPage, { data });
 
 		dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+			this.refresh = true;
 			if (confirmed) {
 				const a = document.createElement('a');
 				a.click();
@@ -77,6 +80,16 @@ export class JokeService {
 			})
 		}
 	}
+}
+
+export interface DialogData {
+	title: string;
+	message?: string;
+	buttonText: {
+		cancel: string;
+		ok: string;
+	},
+	joke?: JokesData;
 }
 
 

@@ -1,7 +1,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { DataService, JokesDataResponse } from 'src/service/data-service';
+import { DataService } from 'src/service/data-service';
 
 @Component({
 	selector: 'app-header',

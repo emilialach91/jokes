@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataService } from 'src/service/data-service';
+import { DataService, JokesData } from 'src/service/data-service';
 import { JokeService } from 'src/service/jokes-service';
 
 @Component({
@@ -11,7 +11,7 @@ export class MyJokesPage {
 
 	category: any;
 	pageState: PageState = {
-		loading: true,
+		loading: false,
 		ready: false,
 	}
 
@@ -22,13 +22,24 @@ export class MyJokesPage {
 	}
 
 	ngOnInit() {
+		this.pageState.loading = true;
+		this.pageState.ready = false;
 		this.jokeService.myJokesList.forEach((joke) => {
 			if (this.jokeService.categoryList.find(x => x.id === joke.category)) {
 				joke.category = this.jokeService.categoryList.find(x => x.id === joke.category).name
+				this.jokeService.listOfTempJokes.push(joke);
 			}
 		});
 		this.pageState.loading = false;
 		this.pageState.ready = true;
+	}
+
+	async ngDoCheck() {
+		if (this.jokeService.refresh === true) {
+			await this.jokeService.getMyJokes();
+			this.ngOnInit()
+			this.jokeService.refresh = false;
+		}
 	}
 }
 

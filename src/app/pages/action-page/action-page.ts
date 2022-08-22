@@ -1,9 +1,10 @@
-import { Component, Inject } from '@angular/core';
+import { Component, EventEmitter, Inject, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { SnakbarComponent } from 'src/app/components/snackbar/snackbar';
-import { DataService } from 'src/service/data-service';
+import { DataService, JokesData, SendJokeParams } from 'src/service/data-service';
 import { JokeService } from 'src/service/jokes-service';
 
 @Component({
@@ -12,8 +13,6 @@ import { JokeService } from 'src/service/jokes-service';
 	styleUrls: ['./action-page.scss']
 })
 export class ActionPage {
-
-	categoryNames: string[] = [];
 
 	public newJokeForm: FormGroup = new FormGroup({
 		newJokeInput: new FormControl('', [Validators.required]),
@@ -31,24 +30,21 @@ export class ActionPage {
 
 
 	async addNewJoke() {
-		const params: any = {
+		const params: SendJokeParams = {
 			id: new Array(34).fill(undefined).map(i => (~~(Math.random() * 36)).toString(36)).join(''),
 			category: this.jokeService.categoryList.find(x => x.name === this.newJokeForm.controls['newJokeCategory'].value).id,
 			content: this.newJokeForm.controls['newJokeInput'].value
 		}
-		let resp: any;
-
-		resp = await this.dataService.sendMyJokesData(params);
+		await this.dataService.sendMyJokesData(params);
 		this.dialogRef.close(true);
 		this.openAddedJokeSnackbar();
-
 	}
 
-	async deleteJoke(value: any) {
-		let resp: any;
-		resp = await this.dataService.deleteMyJoke(Object.keys(this.jokeService.myJokesData).find(key => this.jokeService.myJokesData[key] === value))
+	async deleteJoke(value: JokesData) {
+		await this.dataService.deleteMyJoke(Object.keys(this.jokeService.myJokesData).find(key => this.jokeService.myJokesData[key].id === value.id))
 		this.dialogRef.close(true);
 		this.openDeletedJokeSnackbar();
+		this.jokeService.listOfTempJokes = this.jokeService.listOfTempJokes.filter(item => item.id !== value.id)
 	}
 
 	openAddedJokeSnackbar() {

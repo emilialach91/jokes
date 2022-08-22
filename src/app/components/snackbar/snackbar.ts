@@ -16,7 +16,6 @@ export class SnakbarComponent {
 	}
 
 	async dismiss() {
-		this.snackBar.dismiss()
-		await this.jokeService.getMyJokes();
+		this.snackBar.dismiss();
 	}
 }

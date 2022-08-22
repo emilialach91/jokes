@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataService } from 'src/service/data-service';
+import { DataService, JokesData, } from 'src/service/data-service';
 import { JokeService } from 'src/service/jokes-service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
@@ -34,13 +34,11 @@ export class JokesPage {
 			console.error(err)
 		}
 
-
 		try {
 			categoryResp = await this.dataService.getCategories();
 		} catch (err) {
 			console.error(err)
 		}
-
 
 		if (allJokeResp && allJokeResp.length > 0) {
 			this.jokeService.jokeList = allJokeResp;
@@ -62,7 +60,6 @@ export class JokesPage {
 		this.jokeIndex = this.jokeIndex + 1;
 		this.currentSlide = this.jokeService.jokeList[this.jokeIndex];
 		this.checkCategory(this.currentSlide)
-
 	}
 
 	prevJoke() {
@@ -71,7 +68,7 @@ export class JokesPage {
 		this.checkCategory(this.currentSlide)
 	};
 
-	checkCategory(currentJoke: any) {
+	checkCategory(currentJoke: JokesData) {
 		this.category = this.jokeService.categoryList.find(x => x.id === currentJoke.category).name
 	}
 }
