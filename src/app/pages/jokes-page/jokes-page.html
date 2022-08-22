@@ -9,12 +9,16 @@
 	<div class="content-container" *ngIf="pageState.ready">
 		<button (click)="jokeService.openDialog()" class="button add">Dodaj</button>
 		<div class="large-card">
-			<p class="action category-content">kategoria: <b>{{category}}</b></p>
-			<p class="joke-content">{{currentSlide.content}}</p>
+			<div class="joke-category">
+				<p>kategoria: <b>{{category}}</b></p>
+			</div>
+			<div class="joke-content">
+				<p>{{currentSlide.content}}</p>
+			</div>
 		</div>
-		<div>
-			<button class="button action" *ngIf="jokeIndex < jokeService.jokeList.length - 1" (click)="nextJoke()">Pokaż następny</button>
-			<button class="button action" *ngIf="jokeIndex" (click)="prevJoke()">Pokaż poprzedni</button>
+		<div class="nav-buttons">
+			<button class="button nav" *ngIf="jokeIndex" (click)="prevJoke()">Pokaż poprzedni</button>
+			<button class="button nav margin-left" *ngIf="jokeIndex < jokeService.jokeList.length - 1" (click)="nextJoke()">Pokaż następny</button>
 		</div>
 	</div>
 </div>

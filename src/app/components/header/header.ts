@@ -2,6 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { DataService } from 'src/service/data-service';
+import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
 	selector: 'app-header',

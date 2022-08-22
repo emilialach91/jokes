@@ -5,8 +5,20 @@
 		</div>
 
 		<div class="menu-container">
-			<p routerLink="/" (click)="allJokesViewToggle()" [ngClass]="allJokesView ? 'menu-item yellow' : 'menu-item'">Żarty</p>
-			<p routerLink="/my-jokes-page" (click)="myJokesViewToggle()" [ngClass]="myJokesView ? 'menu-item yellow' : 'menu-item'">Moje żarty</p>
+			<div class="desktop-menu">
+				<p routerLink="/" (click)="allJokesViewToggle()" [ngClass]="allJokesView ? 'menu-item yellow' : 'menu-item'">Żarty</p>
+				<p routerLink="/my-jokes-page" (click)="myJokesViewToggle()" [ngClass]="myJokesView ? 'menu-item yellow' : 'menu-item'">Moje żarty</p>
+			</div>
+			<div class="mobile-menu">
+				<button mat-button [matMenuTriggerFor]="menu">
+					<span class="material-icons">menu</span>
+				</button>
+				<mat-menu #menu="matMenu">
+					<button mat-menu-item routerLink="/" class="menu-item yellow">Żarty</button>
+					<button mat-menu-item routerLink="/my-jokes-page" class="menu-item">Moje żarty</button>
+				</mat-menu>
+			</div>
 		</div>
+
 	</div>
 </div>

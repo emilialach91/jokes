@@ -1,5 +1,4 @@
 .header-shadow {
-	width: 100vw;
 	height: fit-content;
 	display: flex;
 	justify-content: center;
@@ -22,14 +21,6 @@
 		cursor: pointer;
 	}
 
-	.menu-container {
-		margin: var(--content-margin);
-		display: flex;
-		width: 150px;
-		justify-content: space-between;
-		align-items: center;
-	}
-
 	.menu-item {
 		font-size: 1rem;
 		font-weight: bold;
@@ -40,4 +31,28 @@
 	.yellow {
 		color: var(--yellow)
 	}
+}
+
+.desktop-menu {
+	margin: var(--content-margin);
+	display: flex;
+	width: 150px;
+	justify-content: space-between;
+	align-items: center;
+
+	@media screen and (max-width: 480px) {
+		display: none;
+	}
+}
+
+.mobile-menu {
+	display: none;
+
+	@media screen and (max-width: 480px) {
+		display: block;
+	}
+}
+
+.mat-menu-item {
+	font-weight: bold;
 }
