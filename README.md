@@ -22,12 +22,12 @@ ng serve --open
 
 ### Jokes page
 
-![localhost_4200_](https://user-images.githubusercontent.com/59490664/186263082-9ec59eb2-9922-47e6-b46e-5eac33302367.png)
+![localhost_4200_](https://user-images.githubusercontent.com/59490664/186264395-866c39b0-b39d-4e0b-9cdc-4dd404e73d1c.png)
 
 
 ### My jokes page - empty
 
-![localhost_4200_ (1)](https://user-images.githubusercontent.com/59490664/186263192-f8234c0c-1e4c-4b25-9268-165ef9e629e2.png)
+![localhost_4200_ (1)](https://user-images.githubusercontent.com/59490664/186264427-9d1aab66-c84e-495f-9952-b37de5baa2b4.png)
 
 
 ### Add new joke - form
@@ -37,22 +37,22 @@ ng serve --open
 
 ### My joke added - toast
 
-![localhost_4200_my-jokes-page](https://user-images.githubusercontent.com/59490664/186263291-7c995f8f-b9f8-4c07-8a75-80f7d8a74b2d.png)
+![localhost_4200_ (2)](https://user-images.githubusercontent.com/59490664/186264547-5d54b855-8575-47b2-a32b-bc2f45b3dbc0.png)
 
 
 ### My jokes page - with content
 
-![localhost_4200_ (4)](https://user-images.githubusercontent.com/59490664/186263355-9a7c36e4-fd6f-4ba6-a3c2-329ca0afcf6a.png)
+![localhost_4200_ (4)](https://user-images.githubusercontent.com/59490664/186264681-1a4b3336-8afa-4a4e-8028-b256020e4139.png)
 
 
 ### Remove my joke -alert
 
-![localhost_4200_ (5)](https://user-images.githubusercontent.com/59490664/186263415-1744796d-fdbf-41eb-a66f-ba1529b5ab59.png)
+![localhost_4200_ (5)](https://user-images.githubusercontent.com/59490664/186264753-7755c2ec-e438-4e3c-afea-20ffae2ff0bd.png)
 
 
 ### My joke deleted - toast
 
-![localhost_4200_ (6)](https://user-images.githubusercontent.com/59490664/186263450-0cae9041-ad51-4ca5-baff-f4ea8281124d.png)
+![localhost_4200_ (6)](https://user-images.githubusercontent.com/59490664/186264804-b6d7a102-7322-46c0-832a-968852cbe6f1.png)
 
 
 
