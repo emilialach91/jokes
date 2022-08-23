@@ -1,19 +1,18 @@
-.main-container {
+.container {
 	max-width: 1440px;
 	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	// display: flex;
+	// flex-direction: column;
+	// justify-content: center;
+	// align-items: center;
 	margin: 0 auto;
 	background-color: var(--white);
 
 	.content-container {
 		max-width: 768px;
 		width: 100%;
-		height: calc(100vh - 80px);
+		height: calc(100vh - 200px);
 		margin: 0 auto;
-		margin: var(--content-margin);
 
 		.center {
 			display: flex;
@@ -26,7 +25,7 @@
 		}
 
 		.button {
-			margin: calc(var(--content-margin) * 1.2) 0;
+			margin: calc(var(--content-margin) * 1.2);
 			background-color: var(--yellow);
 			border: none;
 			border-radius: 8px;
@@ -34,7 +33,6 @@
 			cursor: pointer;
 			width: 110px;
 			height: 48px;
-			margin: 8px;
 		}
 
 		.delete {
@@ -47,42 +45,46 @@
 		.masonry-columns {
 			display: flex;
 			flex-flow: column wrap;
+			justify-content: flex-start;
 			align-content: space-between;
-			height: 100vh;
-			max-width: 379px;
+			height: calc(100vh - 200px);
+			max-width: 377px;
 
-			@media screen and (max-width: 786px) {
+			@media screen and (max-width: 790px) {
 				flex-flow: column;
+				align-items: center;
+				justify-content: center;
 				max-width: 650px;
+				width: 100%;
 				height: auto;
 				margin: 0 auto;
 			}
 		}
 
 		.my-joke-container {
-			max-width: 379px;
-			margin-bottom: 2%;
+			width: 100%;
 			box-shadow: var(--background-tertiary-shadow);
 			border-radius: 8px;
-			margin: var(--content-margin);
+			margin: 0 var(--content-margin) var(--content-margin) 0;
 			display: flex;
 			flex-direction: column;
 			align-items: flex-end;
 
 			@media screen and (max-width: 786px) {
-				max-width: 650px;
+				max-width: 90%;
+				width: 100%;
+				margin: 0 16px;
 			}
 
 			.joke-category {
-				width: 100%;
 				text-align: right;
-				margin: var(--content-margin);
+				padding: var(--content-margin);
 			}
 
 			.joke-content {
+				width: 95%;
 				text-align: center;
-				margin: auto;
-				margin: var(--content-margin);
+				padding: var(--content-margin);
 			}
 		}
 
@@ -108,6 +110,7 @@
 			width: 0;
 			margin: 0;
 			box-shadow: none;
+			margin: 8px;
 		}
 	}
 }
