@@ -12,7 +12,7 @@ export class JokeService {
 	categoryList: any[] = []
 	jokeList: JokesData[] = [];
 	myJokesList: JokesData[] = [];
-	myJokesData: JokesData;
+	myJokesData: any;
 	refresh: boolean = false;
 	listOfTempJokes: JokesData[] = [];
 

@@ -1,10 +1,6 @@
 .container {
 	max-width: 1440px;
 	width: 100%;
-	// display: flex;
-	// flex-direction: column;
-	// justify-content: center;
-	// align-items: center;
 	margin: 0 auto;
 	background-color: var(--white);
 
@@ -46,13 +42,13 @@
 			margin: 0 var(--content-margin) var(--content-margin) 0;
 		}
 
-		.masonry-columns {
+		.collection-container {
 			display: flex;
-			flex-flow: column wrap;
-			justify-content: flex-start;
-			align-content: space-between;
-			height: calc(100vh - 200px);
-			max-width: 377px;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
+			width: 100%;
 
 			@media screen and (max-width: 800px) {
 				flex-flow: column;
@@ -66,10 +62,10 @@
 		}
 
 		.my-joke-container {
-			width: 100%;
+			width: 376px;
 			box-shadow: var(--background-tertiary-shadow);
 			border-radius: 8px;
-			margin: 0 var(--content-margin) var(--content-margin) 0;
+			margin-bottom: var(--content-margin);
 			display: flex;
 			flex-direction: column;
 			align-items: flex-end;
@@ -90,30 +86,6 @@
 				text-align: center;
 				padding: var(--content-margin);
 			}
-		}
-
-		.my-joke-container:nth-of-type(10n+1) {
-			order: 1;
-		}
-
-		.my-joke-container:nth-of-type(10n+2) {
-			order: 2;
-		}
-
-		.my-joke-container:nth-of-type(10n+3) {
-			order: 3;
-		}
-
-		.my-joke-container:nth-of-type(10n) {
-			order: 4;
-		}
-
-		/* Force new columns */
-		.break {
-			flex-basis: 100%;
-			width: 0;
-			margin: 0;
-			box-shadow: none;
 		}
 	}
 }
