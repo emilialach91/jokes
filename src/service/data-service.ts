@@ -93,7 +93,7 @@ export interface JokesData {
 	content: string;
 }
 
-export interface CategoriesDataResponse {
+export interface CategoriesData {
 	code: string;
 	id: string;
 	name: string;

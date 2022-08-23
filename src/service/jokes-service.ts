@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActionPage } from 'src/app/pages/action-page/action-page';
-import { DataService, JokesData } from './data-service';
+import { CategoriesData, DataService, JokesData } from './data-service';
 
 @Injectable()
 
@@ -12,7 +12,7 @@ export class JokeService {
 	categoryList: any[] = []
 	jokeList: JokesData[] = [];
 	myJokesList: JokesData[] = [];
-	myJokesData: any;
+	myJokesData: JokesData;
 	refresh: boolean = false;
 	listOfTempJokes: JokesData[] = [];
 
