@@ -25,32 +25,14 @@ export class JokesPage {
 	) { }
 
 	async ngOnInit() {
-		let allJokeResp: any;
-		let categoryResp: any;
+		const allJokesResp: any = await this.dataService.getJokesData();
+		this.jokeService.jokeList = allJokesResp
 
-		try {
-			allJokeResp = await this.dataService.getJokesData();
-		} catch (err) {
-			console.error(err)
-		}
-
-		try {
-			categoryResp = await this.dataService.getCategories();
-		} catch (err) {
-			console.error(err)
-		}
-
-		if (allJokeResp && allJokeResp.length > 0) {
-			this.jokeService.jokeList = allJokeResp;
-			this.currentSlide = this.jokeService.jokeList[0];
-		}
-
-		if (allJokeResp && allJokeResp.length > 0) {
-			this.jokeService.categoryList = categoryResp
-		}
+		const categoryResp: any = await this.dataService.getCategories();
+		this.jokeService.categoryList = categoryResp
 
 		await this.jokeService.getMyJokes();
-
+		this.currentSlide = this.jokeService.jokeList[0];
 		this.category = this.jokeService.categoryList.find(x => x.id === this.currentSlide.category).name
 		this.pageState.loading = false;
 		this.pageState.ready = true;
