@@ -37,7 +37,7 @@ ng serve --open
 
 ### My joke added - toast
 
-![localhost_4200_ (2)](https://user-images.githubusercontent.com/59490664/186264547-5d54b855-8575-47b2-a32b-bc2f45b3dbc0.png)
+![localhost_4200_my-jokes-page](https://user-images.githubusercontent.com/59490664/186264949-018c6362-4868-4748-b74b-6cbf0ddb1682.png)
 
 
 ### My jokes page - with content
