@@ -120,8 +120,8 @@
 						"prerender": false,
 						"ssr": false,
 						"browserTarget": "angular.io-example:build:production",
-						"firebaseProject": "jokes-5142d",
-						"firebaseHostingSite": "jokes-5142d"
+						"firebaseProject": "jokes-c4aea",
+						"firebaseHostingSite": "jokes-c4aea"
 					}
 				}
 			}

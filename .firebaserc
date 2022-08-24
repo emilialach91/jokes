@@ -1,14 +1,16 @@
 {
+  "projects": {
+    "default": "jokes-c4aea",
+    "environment": "jokes-c4aea"
+  },
   "targets": {
-    "jokes-5142d": {
+    "jokes-c4aea": {
       "hosting": {
         "angular.io-example": [
-          "jokes-5142d"
+          "jokes-c4aea"
         ]
       }
     }
   },
-  "projects": {
-    "default": "jokes-5142d"
-  }
+  "etags": {}
 }
