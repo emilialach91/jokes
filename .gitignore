@@ -6,6 +6,7 @@
 /out-tsc
 /bazel-out
 /dir
+/.github/workflows
 
 # Node
 /node_modules
