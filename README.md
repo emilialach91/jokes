@@ -4,7 +4,8 @@ https://jokes-c4aea.firebaseapp.com/
 
 ## Overview
 
-Recruitment task for Lemisoft. 
+Joke app.
+The app allows you to view the list of all jokes. You can also manage your jokes - add and delete them.
 
 ## Tools
 
